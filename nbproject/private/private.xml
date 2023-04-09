@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Projet_pidev/src/services/ServiceProduit.java</file>
+            <file>file:/C:/Projet_pidev/src/entities/Categorie.java</file>
+            <file>file:/C:/Projet_pidev/src/utils/Jdbc_connection.java</file>
+            <file>file:/C:/Projet_pidev/src/GUI/Ajouter%20produit.fxml</file>
+            <file>file:/C:/Projet_pidev/src/services/ServiceCategorie.java</file>
+            <file>file:/C:/Projet_pidev/src/projet_pidev/Main.java</file>
+            <file>file:/C:/Projet_pidev/src/utils/Log.java</file>
+            <file>file:/C:/Projet_pidev/src/entities/Produit.java</file>
+            <file>file:/C:/Projet_pidev/src/utils/DateTime_helpers.java</file>
+            <file>file:/C:/Projet_pidev/src/utils/Service_request_headers.java</file>
+        </group>
+    </open-files>
+</project-private>
