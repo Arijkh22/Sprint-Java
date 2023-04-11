@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="anchorme" prefHeight="618.0" prefWidth="874.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.devapps.Controller.AjoutercategorieController">
+   <children>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="354.0" layoutY="105.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../utilities/reclamation.png" />
+         </image>
+      </ImageView>
+      <Label layoutY="-1.0" prefHeight="81.0" prefWidth="876.0" style="-fx-background-color: #87CEEB;" text="                              Ajouter Categorie">
+         <font>
+            <Font name="Cambria" size="42.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nom" layoutX="336.0" layoutY="309.0" promptText="nom" stylesheets="@../values/style.css">
+         <styleClass>
+            <String fx:value="search-box" />
+            <String fx:value="shadow" />
+         </styleClass>
+      </TextField>
+      <Button layoutX="456.0" layoutY="483.0" mnemonicParsing="false" onAction="#annulercategorie" prefHeight="31.0" prefWidth="194.0" style="-fx-background-color: #87CEEB;" stylesheets="@../values/style.css" text="annuler" textFill="#828282">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <styleClass>
+            <String fx:value="add-btn" />
+            <String fx:value="shadow" />
+         </styleClass>
+      </Button>
+      <Button layoutX="249.0" layoutY="483.0" mnemonicParsing="false" onAction="#ajoutercategorie" prefHeight="18.0" prefWidth="187.0" style="-fx-background-color: #87CEEB;" stylesheets="@../values/style.css" text="ajouter" textFill="#828282">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <styleClass>
+            <String fx:value="add-btn" />
+            <String fx:value="shadow" />
+         </styleClass>
+      </Button>
+   </children>
+   <styleClass>
+      <String fx:value="fruit-item" />
+      <String fx:value="shadow" />
+   </styleClass>
+   <stylesheets>
+      <URL value="@../values/style.css" />
+      <URL value="@../../../utilities/style.css" />
+   </stylesheets>
+</AnchorPane>
