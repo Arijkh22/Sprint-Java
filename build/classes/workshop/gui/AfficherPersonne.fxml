@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="workshop.gui.AfficherPersonneController">
+   <children>
+      <Label layoutX="145.0" layoutY="20.0" prefHeight="64.0" prefWidth="332.0" text="Les appels d'offres" textAlignment="CENTER" textFill="#165ba1">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnAjouter" layoutX="447.0" layoutY="361.0" mnemonicParsing="false" onAction="#btnAjouter" text="Ajouter un appel d'offre" textFill="#2b32ff">
+         <font>
+            <Font name="System Italic" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnModifier" layoutX="233.0" layoutY="348.0" mnemonicParsing="false" onAction="#btnModifier" prefHeight="27.0" prefWidth="78.0" text="Modifier" />
+      <Button fx:id="btnSupprimer" layoutX="341.0" layoutY="348.0" mnemonicParsing="false" onAction="#btnSupprimer" prefHeight="27.0" prefWidth="78.0" text="Supprimer" />
+      <TableView fx:id="table" layoutX="10.0" layoutY="100.0" onMouseClicked="#handleMouseClicked" prefHeight="232.0" prefWidth="498.0">
+        <columns>
+          <TableColumn fx:id="colNom" prefWidth="104.0" text="Nom" />
+            <TableColumn fx:id="colQuantite" prefWidth="90.0" text="Quantite" />
+            <TableColumn fx:id="colBudget" prefWidth="95.0" text="Budget" />
+            <TableColumn fx:id="colDescription" prefWidth="122.0" text="Description" />
+            <TableColumn fx:id="colDate" prefWidth="85.0" text="Date" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnAjouterRep" layoutX="69.0" layoutY="349.0" mnemonicParsing="false" onAction="#btnAjouterRep" prefHeight="25.0" prefWidth="136.0" text="Ajouter Reponse" />
+   </children>
+</AnchorPane>
