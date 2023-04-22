@@ -11,16 +11,13 @@ import edu.devapps.services.ProduitService;
 import java.sql.Date;
 
 
-
-
 public class Pidev1 {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        
+       
       
         Date d = new Date(1999, 10, 30);
          

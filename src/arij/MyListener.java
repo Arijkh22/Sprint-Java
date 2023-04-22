@@ -1,7 +1,5 @@
 package arij;
 
-
-
 import edu.devapps.entity.Categorie;
 import edu.devapps.entity.Produit;
 
