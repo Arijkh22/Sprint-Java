@@ -73,18 +73,17 @@ Categorie thiscat;
                         
                     if (nom_produit.getText().equals(""))
                          {
-                          System.out.println("nom produit obligatoire");
-                           Alert a = new Alert(Alert.AlertType.INFORMATION,"nom produit cant be null");
+                          System.out.println("nom du produit obligatoire");
+                           Alert a = new Alert(Alert.AlertType.INFORMATION,"nom du produit obligatoire");
                            a.show();
                              
                          }
-                         else if (description.getText().equals(""))
-                         {
-                           System.out.println("description produit obligatoire");
-                             Alert a = new Alert(Alert.AlertType.INFORMATION,"description cant be null");
+                         else if (description.getText().length() < 8) {
+                           System.out.println("Description doit avoir au minimum 8 caractères");
+                               Alert a = new Alert(Alert.AlertType.INFORMATION,"Description doit avoir au minimum 8 caractères");
                            a.show();
+                        }
 
-                         }
                          else if (photo.getText().equals(""))
                          {
                            System.out.println("photo produit obligatoire");
@@ -93,18 +92,16 @@ Categorie thiscat;
                              
                          }
                          
-                         else if (prix.getText().equals(""))
-                         {
-                             System.out.println("prix cant be 0");
-                                           Alert a = new Alert(Alert.AlertType.INFORMATION,"prix cant be null");
+                         else if (!prix.getText().matches("\\d+(\\.\\d+)?") || Float.parseFloat(prix.getText()) <= 0) {
+                           System.out.println("Le prix doit être un nombre positif");
+                               Alert a = new Alert(Alert.AlertType.INFORMATION, "Le prix doit être un nombre positif");
+                           a.show();} 
+                         else if (!quantite.getText().matches("\\d+") || Integer.parseInt(quantite.getText()) <= 0) {
+                            System.out.println("La quantité doit être un entier positif");
+                               Alert a = new Alert(Alert.AlertType.INFORMATION, "La quantité doit être un entier positif");
                            a.show();
-                         }
-                         else if (quantite.getText().equals(""))
-                         {
-                             System.out.println("quantite cant be 0");
-                                                Alert a = new Alert(Alert.AlertType.INFORMATION,"quantite cant be null");
-                           a.show();
-                         }
+                        }
+
                          
                      else
                          {
@@ -114,15 +111,15 @@ Categorie thiscat;
                      Date d = new Date(19993010);
                          if (p==0)
                          {
-                             System.out.println("prix cant be 0"); 
-                            Alert a = new Alert(Alert.AlertType.INFORMATION,"prix cant be null");
+                             System.out.println("prix ne peut pas etre 0"); 
+                            Alert a = new Alert(Alert.AlertType.INFORMATION,"prix ne peut pas etre 0");
                            a.show();
                          }
                          else
                              if (q==0)
                              {
-                                 System.out.println("quantite cant be 0");  
-                                      Alert a = new Alert(Alert.AlertType.INFORMATION,"quantite cant be null");
+                                 System.out.println("quantite ne peut pas etre 0");  
+                                      Alert a = new Alert(Alert.AlertType.INFORMATION,"quantite ne peut pas etre 0");
                            a.show();
                              }
                          else

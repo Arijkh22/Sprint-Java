@@ -9,12 +9,15 @@ import arij.MyListener;
 import edu.devapps.entity.Categorie;
 import edu.devapps.entity.Produit;
 import edu.devapps.services.ProduitService;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -24,15 +27,21 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 
@@ -62,10 +71,14 @@ public class produitviewController implements Initializable {
     private GridPane grid;
     @FXML
     private AnchorPane anchorforedit;
+    
+
  Produit currentproduit;
      private Parent fxml;
       private List<Produit> produits = new ArrayList<>();
     private MyListener myListener;
+    @FXML
+    private TextField filtree;
     
      private List<Produit> getData() throws SQLException {
       
@@ -221,7 +234,7 @@ public class produitviewController implements Initializable {
         Produit r = new Produit();
         r.setId_produit(currentproduit.getId_produit());
         s.supprimerproduit(r);
-        Alert a = new Alert(Alert.AlertType.INFORMATION, "your produit has been deleted");
+        Alert a = new Alert(Alert.AlertType.INFORMATION, "Produit supprimé");
                 a.show();
                            FXMLLoader load = new FXMLLoader(getClass().getResource("/edu/devapps/Interface/produitview.fxml"));
                            Parent root =load.load();
@@ -248,5 +261,25 @@ public class produitviewController implements Initializable {
     
     
     }
+
+    @FXML
+    private void stat(ActionEvent event) throws IOException {
+        FXMLLoader load = new FXMLLoader(getClass().getResource("/edu/devapps/Interface/Chart.fxml"));
+                           Parent root =load.load();
+                           ChartController c2=  load.getController();
+                           Scene ss= new Scene(root);
+                           Stage se= new Stage();
+                           se=(Stage)((Node)event.getSource()).getScene().getWindow();
+                           se.setScene(ss);
+                           se.show();
+    }
+   
     
+    
+    
+ 
+
+ 
+    
+  
 }

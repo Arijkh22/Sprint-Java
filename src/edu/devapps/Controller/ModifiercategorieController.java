@@ -63,7 +63,7 @@ public class ModifiercategorieController implements Initializable {
                     
                       if (nom.getText().equals(""))
                       {
-                          Alert e = new Alert(Alert.AlertType.INFORMATION,"nom cant be empty");
+                          Alert e = new Alert(Alert.AlertType.INFORMATION,"nom obligatoire");
                           e.show();
                       }
                       else

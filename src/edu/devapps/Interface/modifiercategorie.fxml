@@ -23,9 +23,8 @@
       </TextField>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="360.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../utilities/reclamation.png" />
-         </image>
-      </ImageView>
+            <Image url="@../../../utilities/icon%20catgegorie.png" />
+         </image></ImageView>
       <Button layoutX="458.0" layoutY="407.0" mnemonicParsing="false" onAction="#annulercategorie" prefHeight="31.0" prefWidth="194.0" style="-fx-background-color: #87CEEB;" stylesheets="@../values/style.css" text="annuler" textFill="#828282">
          <font>
             <Font name="System Bold" size="18.0" />

@@ -64,6 +64,7 @@ public class categorieviewController implements Initializable {
     
     
     
+    
      private List<Categorie> getData() throws SQLException {
       
             List<Categorie> categories = new ArrayList<>();
@@ -222,7 +223,7 @@ public class categorieviewController implements Initializable {
         Categorie r = new Categorie();
         r.setId(currentategorie.getId());
         s.supprimercategorie(r);
-        Alert a = new Alert(Alert.AlertType.INFORMATION, "your categorie has been deleted");
+        Alert a = new Alert(Alert.AlertType.INFORMATION, "categorie supprimé");
                 a.show();
                            FXMLLoader load = new FXMLLoader(getClass().getResource("/edu/devapps/Interface/categorieview.fxml"));
                            Parent root =load.load();

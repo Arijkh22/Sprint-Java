@@ -7,6 +7,7 @@ package edu.devapps.services;
 
 import com.mysql.jdbc.Connection;
 import edu.devapps.entity.Produit;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -99,6 +100,8 @@ public class ProduitService {
         }
        
 }
+   
+    
     
     
 }

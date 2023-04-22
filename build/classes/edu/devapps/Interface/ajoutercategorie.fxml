@@ -12,17 +12,16 @@
 
 <AnchorPane id="AnchorPane" fx:id="anchorme" prefHeight="618.0" prefWidth="874.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.devapps.Controller.AjoutercategorieController">
    <children>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="354.0" layoutY="105.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="108.0" fitWidth="116.0" layoutX="384.0" layoutY="151.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../utilities/reclamation.png" />
-         </image>
-      </ImageView>
+            <Image url="@../../../utilities/icon%20catgegorie.png" />
+         </image></ImageView>
       <Label layoutY="-1.0" prefHeight="81.0" prefWidth="876.0" style="-fx-background-color: #87CEEB;" text="                              Ajouter Categorie">
          <font>
             <Font name="Cambria" size="42.0" />
          </font>
       </Label>
-      <TextField fx:id="nom" layoutX="336.0" layoutY="309.0" promptText="nom" stylesheets="@../values/style.css">
+      <TextField fx:id="nom" layoutX="363.0" layoutY="309.0" promptText="nom" stylesheets="@../values/style.css">
          <styleClass>
             <String fx:value="search-box" />
             <String fx:value="shadow" />

@@ -8,13 +8,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" onMouseClicked="#onclick" prefHeight="427.0" prefWidth="297.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.devapps.Controller.OnecategorieviewController">
+<AnchorPane id="AnchorPane" onMouseClicked="#onclick" prefHeight="427.0" prefWidth="297.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.devapps.Controller.OnecategorieviewController">
    <children>
       <ImageView fitHeight="122.0" fitWidth="108.0" layoutX="77.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../utilities/reclamation.png" />
-         </image>
-      </ImageView>
+            <Image url="@../../../utilities/icon%20catgegorie.png" />
+         </image></ImageView>
       <Label fx:id="nom" layoutX="152.0" layoutY="201.0" text="nom">
          <font>
             <Font name="Cambria" size="21.0" />
