@@ -8,6 +8,7 @@ package edu.devapps.Controller;
 import edu.devapps.entity.Categorie;
 import edu.devapps.entity.Produit;
 import edu.devapps.services.ProduitService;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
@@ -22,6 +23,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 
@@ -37,9 +39,12 @@ public class AjouterproduitController implements Initializable {
     private TextField description;
     @FXML
     private TextField quantite;
-    @FXML
     private TextField photo;
 Categorie thiscat;
+    @FXML
+    private TextField url;
+    private File file;
+    private Stage stage;
     /**
      * Initializes the controller class.
      */
@@ -64,9 +69,17 @@ Categorie thiscat;
     
     
     }
+       public void  getinfo (Categorie cat)
+    {
+        thiscat=cat;
+  
+   
+        
+    }
 
     @FXML
     private void ajouterproduit(ActionEvent event) throws IOException {
+        
    
                 
                     
@@ -84,7 +97,7 @@ Categorie thiscat;
                            a.show();
                         }
 
-                         else if (photo.getText().equals(""))
+                         else if (url.getText().equals(""))
                          {
                            System.out.println("photo produit obligatoire");
                                Alert a = new Alert(Alert.AlertType.INFORMATION,"photo obligatoire");
@@ -128,8 +141,9 @@ Categorie thiscat;
                              
                          
                              ProduitService s = new ProduitService();
+                             
 
-                      s.ajouterproduit(new Produit(1, nom_produit.getText(), description.getText(),p,q,photo.getText(),d,thiscat.getId()));
+                      s.ajouterproduit(new Produit(1, nom_produit.getText(), description.getText(),p,q,url.getText(),d,thiscat.getId()));
                         Alert a = new Alert(Alert.AlertType.INFORMATION, "votre produit est ajouter ");
                         a.show();
         
@@ -145,14 +159,22 @@ Categorie thiscat;
                            se.show();
                           }}
     }
-    
-    
-    
-       public void  getinfo (Categorie cat)
-    {
-        thiscat=cat;
-  
-   
-        
+
+    @FXML
+    private void importer(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Sélectionnez un fichier PNG");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Images", "*.png", "*.jpg"));
+        File fichierSelectionne = fileChooser.showOpenDialog(stage);
+
+        if (fichierSelectionne != null) {
+        	url.setText(fichierSelectionne.getName());
+            file = fichierSelectionne;
+        }
     }
+    
+    
+    
+    
 }
