@@ -153,4 +153,65 @@ public class ServicePersonne   implements IService<Personne>{
         return pers; 
     }
 
+    @Override
+    public ArrayList<Personne> rechercherpersonne(String champ) {
+        ArrayList<Personne> searchResults = new ArrayList<>();
+        
+        try {
+        String sql = "SELECT * FROM `devappsfinal`.`appel_offre` WHERE nom LIKE ? OR quantite LIKE ? OR budget LIKE ? OR date LIKE ?";
+        PreparedStatement stmt = con.prepareStatement(sql);
+        stmt.setString(1, "%" + champ + "%");
+        stmt.setString(2, "%" + champ + "%");
+        stmt.setString(3, "%" + champ + "%");
+        stmt.setString(4, "%" + champ + "%");
+        ResultSet res = stmt.executeQuery();
+        while (res.next()) {
+            Personne personne = new Personne();
+            personne.setId(res.getInt("id"));
+            personne.setNom(res.getString("nom"));
+            personne.setQuantite(res.getString("quantite"));
+            personne.setBudget(res.getString("budget"));
+            personne.setDescrition(res.getString("description"));
+            personne.setDate(res.getString("date"));
+            searchResults.add(personne);
+        }
+        res.close();
+        stmt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return searchResults;
+
+    }
+
+    
+    @Override
+    public ArrayList<Personne> rechercheavancee(String champ, String valeur) {
+        ArrayList<Personne> searchResults = new ArrayList<>();
+
+    try {
+        String sql = "SELECT * FROM `devappsfinal`.`appel_offre` WHERE " + champ + " LIKE ?";
+        PreparedStatement stmt = con.prepareStatement(sql);
+        stmt.setString(1, "%" + valeur + "%");
+        ResultSet res = stmt.executeQuery();
+        while (res.next()) {
+            Personne personne = new Personne();
+            personne.setId(res.getInt("id"));
+            personne.setNom(res.getString("nom"));
+            personne.setQuantite(res.getString("quantite"));
+            personne.setBudget(res.getString("budget"));
+            personne.setDescrition(res.getString("description"));
+            personne.setDate(res.getString("date"));
+
+            searchResults.add(personne);
+        }
+        res.close();
+        stmt.close();
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+
+    return searchResults;
+    }
+
 }

@@ -9,10 +9,13 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.function.Predicate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
+import static javafx.collections.FXCollections.observableList;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -24,10 +27,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
@@ -37,6 +42,8 @@ import workshop.entities.Personne;
 import workshop.entities.Reponse;
 import workshop.services.ServicePersonne;
 import workshop.utils.MyDB;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Pagination;
 
 /**
  * FXML Controller class
@@ -76,9 +83,22 @@ public class AfficherPersonneController implements Initializable {
     private Button btnAjouter;
     
     
-   
+    @FXML
+    private TextField txtRecherche;
+    @FXML
+    private Button btnRecherche;
+    @FXML
+    private ComboBox<String> comboBox;
+    
+    
+    @FXML
+    private Pagination pagination;
+    
+    
+    
     private ArrayList<Personne> personnes;
-
+    
+   
     
     
     
@@ -91,9 +111,10 @@ public class AfficherPersonneController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        //Ajouter des éléments à la liste déroulante
+        comboBox.getItems().addAll("Nom", "Quantite", "Budget", "Date");
 
      
-  
      
      // Récupérer les données de la base de données
     ServicePersonne sp = new ServicePersonne();
@@ -102,32 +123,53 @@ public class AfficherPersonneController implements Initializable {
     // Créer l'ObservableList à partir des données récupérées
     ObservableList<Personne> observableList = FXCollections.observableArrayList(personnes);
     
+    
+    
     // Associer l'ObservableList à la TableView
     table.setItems(observableList);
     
+   
+    
+    
     // Associer chaque propriété de Personne à une colonne de TableView
-   // colId.setCellValueFactory(new PropertyValueFactory<>("Id"));
+
     colNom.setCellValueFactory(new PropertyValueFactory<>("Nom"));
     colQuantite.setCellValueFactory(new PropertyValueFactory<>("Quantite"));
     colBudget.setCellValueFactory(new PropertyValueFactory<>("Budget"));
-    colDescription.setCellValueFactory(new PropertyValueFactory<>("Description"));
+    colDescription.setCellValueFactory(new PropertyValueFactory<>("Descrition"));
     colDate.setCellValueFactory(new PropertyValueFactory<>("Date"));
-  //  colIdUtilisateur.setCellValueFactory(new PropertyValueFactory<>("IdUtilisateur"));
-  //  colIDCategorie.setCellValueFactory(new PropertyValueFactory<>("IdCategorie"));
+ 
    
+
     
-    
-   
-   
     
 }
-
-
-
-   
     
     
     
+    
+   /* private void setupPagination() {
+        
+        int totalPages = (observableList.size() / itemsPerPage) + 1;
+        pagination.setPageCount(totalPages);
+
+        filteredList = new FilteredList<>(observableList, p -> true);
+
+        pagination.setPageFactory(new Callback<Integer, Node>() {
+            @Override
+            public Node call(Integer pageIndex) {
+                int fromIndex = pageIndex * itemsPerPage;
+                int toIndex = Math.min(fromIndex + itemsPerPage, observableList.size());
+                filteredList.setPredicate(personne -> observableList.subList(fromIndex, toIndex).contains(personne));
+                return table;
+        }
+    });
+}*/
+  
+    
+
+
+
     @FXML
     private void btnAjouter(ActionEvent event) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("AjouterPersonneFXML.fxml"));
@@ -187,8 +229,8 @@ public class AfficherPersonneController implements Initializable {
     
     
     
-@FXML
-private void handleMouseClicked(MouseEvent event) throws IOException {
+    @FXML
+    private void handleMouseClicked(MouseEvent event) throws IOException {
    
     // Récupération de la ligne sélectionnée
         
@@ -209,31 +251,97 @@ private void handleMouseClicked(MouseEvent event) throws IOException {
                 alert.showAndWait();
                 }
         
-}
+    }
 
 
 
 
-@FXML
-public void btnAjouterRep(ActionEvent event) throws IOException {
+    @FXML
+    public void btnAjouterRep(ActionEvent event) throws IOException {
      
         
         
         FXMLLoader load = new FXMLLoader(getClass().getResource("AjouterReponse.fxml"));
                            Parent root =load.load();
                            AjouterReponseController c2=  load.getController();
-                           c2.setPersonne(table.getSelectionModel().getSelectedItem());
+                           
+                           // Récupérer la personne sélectionnée
+                           Personne personneSelectionnee = table.getSelectionModel().getSelectedItem();
+    
+                           // Envoyer le nom de la personne au contrôleur de la page de réponse
+                           c2.setPersonne(personneSelectionnee);
+    
                            Scene ss= new Scene(root);
                            Stage se= new Stage();
                            se=(Stage)((Node)event.getSource()).getScene().getWindow();
                            se.setScene(ss);
                            se.show();
 
-}
+    }
     
     
     
+    @FXML
+    private void handleRechercher(ActionEvent event) throws IOException {
+        ServicePersonne service = new ServicePersonne();
+        String champ = txtRecherche.getText();
+        if (!champ.isEmpty()) {
+            
+            ArrayList<Personne> searchResults = service.rechercherpersonne(champ);
+            
+            // Récupérer le champ sélectionné dans la ComboBox
+            String item = comboBox.getValue();
+    
+            if (!searchResults.isEmpty()) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("RecherchePersonne.fxml"));
+                Parent root = loader.load();
+                RecherchePersonneController controller = loader.getController();
+                controller.setSearchResults(searchResults);
+                Stage stage = new Stage();
+                stage.setScene(new Scene(root));
+                stage.show();
+            } else {
+                Alert alert = new Alert(AlertType.ERROR);
+                alert.setTitle("Erreur");
+                alert.setHeaderText("Erreur lors du chargement de la vue ");
+                alert.showAndWait();
+            
+            }
+        } else {
+            Alert alert = new Alert(AlertType.ERROR);
+                alert.setTitle("Erreur");
+                alert.setHeaderText("Erreur la recherche est vide ");
+                alert.showAndWait();
+        
+        }
+       
+    }
+    
+    
+    
+    
+    @FXML
+    public void btnRecherche(ActionEvent event) throws IOException {
+        String recherche = txtRecherche.getText().toLowerCase();
 
+        // Créer un prédicat pour la vue filtrée
+        Predicate<Personne> predicate = p -> {
+            // Vérifier si le texte de recherche se trouve dans l'une des colonnes
+            return p.getNom().toLowerCase().contains(recherche)
+                || p.getQuantite().toLowerCase().contains(recherche)
+                || p.getBudget().toLowerCase().contains(recherche)
+                || p.getDate().toLowerCase().contains(recherche);
+        };
+
+        // Obtenir la vue filtrée des éléments affichés dans la table
+        FilteredList<Personne> filteredList = table.getItems().filtered(predicate);
+
+        // Mettre à jour la table avec les éléments filtrés
+        table.setItems(filteredList);
+    }
+    
+    
+    
 }
 
     

@@ -5,6 +5,7 @@
  */
 package workshop.gui;
 
+import Mailing.EmailSender;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -27,6 +28,8 @@ import workshop.entities.Personne;
 import workshop.entities.Reponse;
 import workshop.services.ServicePersonne;
 import workshop.services.ServiceReponse;
+import javax.mail.*;
+import javax.mail.internet.*;
 
 /**
  * FXML Controller class
@@ -67,9 +70,17 @@ public class AjouterReponseController implements Initializable {
         this.p = selectedItem;
         
         System.out.println(selectedItem);
+        
+        
+        Nom.setText(p.getNom());
+        Nom.setEditable(false);
   
+        Date.setText(p.getDate());
+        Date.setEditable(false);
     
     }
+    
+   
     
     
     @FXML
@@ -102,7 +113,7 @@ public class AjouterReponseController implements Initializable {
             alert.showAndWait();
         return;
     }
-    if (Nom.getText().isEmpty() || !Nom.getText().matches("[a-zA-Z]+")) {
+    if (Nom.getText().isEmpty()) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Erreur de saisie");
             alert.setHeaderText(null);
@@ -151,13 +162,22 @@ public class AjouterReponseController implements Initializable {
             Scene page2Scene = new Scene(page2Parent);
     
     
-    // obtenir la scène actuelle et la changer
-    Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-    window.setScene(page2Scene);
-    window.show();
+            // obtenir la scène actuelle et la changer
+            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+            window.setScene(page2Scene);
+            window.show();
         }catch(IOException e) {
-    e.printStackTrace();
-}
+            e.printStackTrace();
+        }
+        
+
+        
+        try {
+            EmailSender.sendMailWithMailtrap("oumaima.najar@esprit.tn", "Nouvelle réponse à l'appel d'offre", "Bonjour, une nouvelle réponse à l'appel d'offre a été ajoutée.");
+            System.out.println("E-mail envoyé avec succès !");
+        } catch (Exception ex) {
+            System.out.println("Erreur lors de l'envoi de l'e-mail : " + ex.getMessage());
+        }
     }
 
     

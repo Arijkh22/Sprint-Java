@@ -6,6 +6,7 @@
 package workshop.services;
 
 import java.util.ArrayList;
+import workshop.entities.Personne;
 
 /**
  *
@@ -18,5 +19,9 @@ public interface IService<T> {
     public void suprrimerPersonne(T t);
     public void modifierPersonne(T t);
     public ArrayList<T> afficherpersonne();
+    
+    public ArrayList<T> rechercherpersonne(String champ);
+    
+    public ArrayList<T> rechercheavancee(String champ, String valeur);
     
 }
