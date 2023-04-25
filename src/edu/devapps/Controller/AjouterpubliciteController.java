@@ -10,7 +10,7 @@ import edu.devapps.entity.Sponsor;
 import edu.devapps.services.PubliciteService;
 import edu.devapps.services.SponsorService;
 import java.io.File;
-import java.io.IOException;e
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.util.ResourceBundle;
