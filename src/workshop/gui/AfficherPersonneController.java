@@ -44,6 +44,7 @@ import workshop.services.ServicePersonne;
 import workshop.utils.MyDB;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Pagination;
+import javax.mail.FetchProfile.Item;
 
 /**
  * FXML Controller class
@@ -55,6 +56,8 @@ public class AfficherPersonneController implements Initializable {
     
     @FXML
     private TableView<Personne> table;
+    ObservableList<Personne> observableList;
+    int itemsPerPage = 5;
  
     @FXML
     private TableColumn<Personne, String> colId;
@@ -93,13 +96,9 @@ public class AfficherPersonneController implements Initializable {
     
     @FXML
     private Pagination pagination;
-    
-    
-    
-    private ArrayList<Personne> personnes;
-    
    
     
+    private ArrayList<Personne> personnes;
     
     
     /**
@@ -116,60 +115,39 @@ public class AfficherPersonneController implements Initializable {
 
      
      
-     // Récupérer les données de la base de données
-    ServicePersonne sp = new ServicePersonne();
-    ArrayList<Personne> personnes = sp.afficherpersonne();
+        // Récupérer les données de la base de données
+        ServicePersonne sp = new ServicePersonne();
+        ArrayList<Personne> personnes = sp.afficherpersonne();
     
-    // Créer l'ObservableList à partir des données récupérées
-    ObservableList<Personne> observableList = FXCollections.observableArrayList(personnes);
+        // Créer l'ObservableList à partir des données récupérées
+        observableList = FXCollections.observableArrayList(personnes);
     
     
+        // Associer l'ObservableList à la TableView
+        table.setItems(observableList);
     
-    // Associer l'ObservableList à la TableView
-    table.setItems(observableList);
-    
+        // Associer chaque propriété de Personne à une colonne de TableView
+
+        colNom.setCellValueFactory(new PropertyValueFactory<>("Nom"));
+        colQuantite.setCellValueFactory(new PropertyValueFactory<>("Quantite"));
+        colBudget.setCellValueFactory(new PropertyValueFactory<>("Budget"));
+        colDescription.setCellValueFactory(new PropertyValueFactory<>("Descrition"));
+        colDate.setCellValueFactory(new PropertyValueFactory<>("Date"));
+
    
-    
-    
-    // Associer chaque propriété de Personne à une colonne de TableView
-
-    colNom.setCellValueFactory(new PropertyValueFactory<>("Nom"));
-    colQuantite.setCellValueFactory(new PropertyValueFactory<>("Quantite"));
-    colBudget.setCellValueFactory(new PropertyValueFactory<>("Budget"));
-    colDescription.setCellValueFactory(new PropertyValueFactory<>("Descrition"));
-    colDate.setCellValueFactory(new PropertyValueFactory<>("Date"));
- 
    
-
-    
-    
-}
-    
-    
-    
-    
-   /* private void setupPagination() {
-        
-        int totalPages = (observableList.size() / itemsPerPage) + 1;
-        pagination.setPageCount(totalPages);
-
-        filteredList = new FilteredList<>(observableList, p -> true);
-
-        pagination.setPageFactory(new Callback<Integer, Node>() {
-            @Override
-            public Node call(Integer pageIndex) {
+     /*   pagination.setPageCount((int) Math.ceil((double) observableList.size() / itemsPerPage));
+            pagination.setPageFactory(pageIndex -> {
                 int fromIndex = pageIndex * itemsPerPage;
                 int toIndex = Math.min(fromIndex + itemsPerPage, observableList.size());
-                filteredList.setPredicate(personne -> observableList.subList(fromIndex, toIndex).contains(personne));
+                table.setItems(FXCollections.observableArrayList(observableList.subList(fromIndex, toIndex)));
                 return table;
-        }
-    });
-}*/
+            });
+        */
+    }
+
   
     
-
-
-
     @FXML
     private void btnAjouter(ActionEvent event) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("AjouterPersonneFXML.fxml"));
