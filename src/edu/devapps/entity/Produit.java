@@ -7,10 +7,7 @@ package edu.devapps.entity;
 
 import java.sql.Date;
 
-/**
- *
- * @author THEOLDISBACK
- */
+
 public class Produit {
     
     int id_produit ;
@@ -21,6 +18,15 @@ public class Produit {
     String photo;
     Date date;
     int id_categorie_id ;
+    float rate;
+
+    public void setRate(float rate) {
+        this.rate = rate;
+    }
+
+    public float getRate() {
+        return rate;
+    }
 
     public Produit() {
     }

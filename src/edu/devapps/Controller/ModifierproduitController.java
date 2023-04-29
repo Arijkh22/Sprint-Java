@@ -22,6 +22,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+import tray.animations.AnimationType;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
 
 
 public class ModifierproduitController implements Initializable {
@@ -121,6 +125,14 @@ public class ModifierproduitController implements Initializable {
 
                       s.modifierproduit(new Produit(thisprod.getId_produit(), nom_produit.getText(), description.getText(),p,q,thisprod.getPhoto(),d,thisprod.getId_categorie_id()));
                         Alert a = new Alert(Alert.AlertType.INFORMATION, "votre produit est modifier ");
+                        AnimationType type = AnimationType.POPUP;
+                                TrayNotification tray = new TrayNotification();
+
+                        tray.setAnimationType(type);
+        tray.setTitle("attention");
+        tray.setMessage("le produit "+nom_produit.getText()+"a été modifié avec succés !");
+        tray.setNotificationType(NotificationType.INFORMATION);
+        tray.showAndDismiss(Duration.millis(2000));
                         a.show();
         
                           anchorme.setVisible(false);

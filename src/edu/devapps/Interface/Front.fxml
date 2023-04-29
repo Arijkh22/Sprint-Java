@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.devapps.Controller.FrontController">
+<children>
+      <BorderPane layoutX="6.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <left>
+            <VBox prefHeight="200.0" prefWidth="435.0" styleClass="right-bar" stylesheets="@../values/style.css" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="83.0" prefWidth="435.0">
+                     <children>
+                        <Label prefHeight="49.0" prefWidth="389.0" text="produit Front-Office" textFill="#878787">
+                           <font>
+                              <Font name="Cambria Bold" size="40.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </left>
+         <center>
+            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="65.0" prefWidth="200.0">
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </VBox.margin>
+                     <children>
+                        <Pane prefHeight="65.0" prefWidth="393.0" HBox.hgrow="ALWAYS" />
+                        <Label prefHeight="62.0" prefWidth="100.0" text="Welcome" textFill="#878787">
+                           <font>
+                              <Font name="Cambria" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Pane prefHeight="84.0" prefWidth="96.0" HBox.hgrow="ALWAYS" />
+                        <Pane prefHeight="84.0" prefWidth="96.0" />
+                     </children>
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                     <children>
+                         
+                        <ScrollPane fx:id="scroll" prefHeight="625.0" prefWidth="868.0" styleClass="transparent" stylesheets="@../values/style.css">
+                           <content>
+                              <GridPane fx:id="grid" prefHeight="0.0" prefWidth="0.0">
+                                 <rowConstraints>
+                                    
+
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                                 </rowConstraints>
+                              </GridPane>
+                           </content>
+                           <HBox.margin>
+                              <Insets top="10.0" />
+                           </HBox.margin>
+                        </ScrollPane>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
+      <AnchorPane fx:id="anchorforedit" layoutX="439.0" layoutY="189.0" prefHeight="618.0" prefWidth="874.0">
+         <children>
+            <Label fx:id="categorieLabel" layoutX="206.0" layoutY="66.0" text="Categorie: " />
+            <Button fx:id="retourButton" layoutX="93.0" layoutY="66.0" mnemonicParsing="false" text="Retour" />
+            <TableView fx:id="tableView" layoutX="89.0" layoutY="99.0" prefHeight="343" prefWidth="580">
+               <columns>
+                  <TableColumn fx:id="idProduitColumn" prefWidth="75" text="ID Produit" />
+                  <TableColumn fx:id="nomProduitColumn" prefWidth="150" text="Nom Produit" />
+                  <TableColumn fx:id="descriptionColumn" prefWidth="200" text="Description" />
+                  <TableColumn fx:id="prixColumn" prefWidth="75" text="Prix" />
+                  <TableColumn fx:id="quantiteColumn" prefWidth="75" text="Quantité" />
+               </columns>
+            </TableView>
+            <Label layoutX="92.0" prefHeight="66.0" prefWidth="345.0" text="Product List" textFill="#ae4242">
+               <font>
+                  <Font name="System Bold" size="41.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
+      
+   </children>
+   
+   <stylesheets>
+      <URL value="@../../../utilites/style.css" />
+      <URL value="@../../../utilities/style.css" />
+   </stylesheets>
+</AnchorPane>

@@ -6,11 +6,18 @@
 package edu.devapps.Controller;
 
 import arij.MyListener;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.QRCodeWriter;
 import edu.devapps.entity.Categorie;
 import edu.devapps.entity.Produit;
 import edu.devapps.services.ProduitService;
+import java.awt.image.BufferedImage;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Writer;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -18,17 +25,21 @@ import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -42,7 +53,9 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
+import javax.imageio.ImageIO;
 
 
 public class produitviewController implements Initializable {
@@ -71,6 +84,10 @@ public class produitviewController implements Initializable {
     private GridPane grid;
     @FXML
     private AnchorPane anchorforedit;
+    private ListView<Produit> listfourni;
+     private VBox buttonsBox;
+
+     
     
 
  Produit currentproduit;
@@ -79,6 +96,11 @@ public class produitviewController implements Initializable {
     private MyListener myListener;
     @FXML
     private TextField filtree;
+    @FXML
+    private Button searchBut;
+    ProduitService PS = new ProduitService();
+    @FXML
+    private Button excelButt;
     
      private List<Produit> getData() throws SQLException {
       
@@ -200,9 +222,17 @@ public class produitviewController implements Initializable {
 
                 GridPane.setMargin(anchorPane, new Insets(10));
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+                    }
+                
+
+
+        catch (Exception ex) {
+            ex.printStackTrace();
+        
+    
+            
+}
+
     }
      
      
@@ -244,6 +274,7 @@ public class produitviewController implements Initializable {
                            se=(Stage)((Node)event.getSource()).getScene().getWindow();
                            se.setScene(ss);
                            se.show();
+                           
     
     }
 
@@ -262,6 +293,7 @@ public class produitviewController implements Initializable {
     
     }
 
+    
     @FXML
     private void stat(ActionEvent event) throws IOException {
         FXMLLoader load = new FXMLLoader(getClass().getResource("/edu/devapps/Interface/Chart.fxml"));
@@ -273,7 +305,91 @@ public class produitviewController implements Initializable {
                            se.setScene(ss);
                            se.show();
     }
-   
+
+    @FXML
+    private void searchproduct(MouseEvent event) {
+        String value = filtree.getText().trim();
+        
+        if(value.isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Erreur");
+            alert.setHeaderText(null);
+            alert.setContentText("Veuillez saisir une valeur de recherche !");
+            alert.showAndWait();
+            return;
+        }
+        
+        List<Produit> produits = PS.RechercheProduit(value);
+                Produit produit = null;
+
+if (!produits.isEmpty()) {
+     produit = produits.get(0);
+        
+        if(produit.getId_produit() == 0) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information");
+            alert.setHeaderText(null);
+            alert.setContentText("Aucun produit trouvé !");
+            alert.showAndWait();
+            return;
+        }
+                        }
+        currentproduit=produit;
+     
+        
+        
+        nom_produit.setText(produit.getNom_produit());
+        description.setText(""+ produit.getDescription());
+       prix.setText(""+produit.getPrix());
+       quantite.setText(""+produit.getQuantite());
+       photo.setText(""+produit.getPhoto());
+      
+      
+        chosenFruitCard.setStyle("-fx-background-color: #FAEBD7;\n" +
+                "    -fx-background-radius: 30;");
+
+    }
+
+    @FXML
+    private void rechercher(ActionEvent event) {
+    }
+
+    @FXML
+    private void Excel(ActionEvent event) throws SQLException, IOException {
+        Writer writer = null;
+                ProduitService sv = new ProduitService();
+                ObservableList<Produit> list = sv.getProduitList();
+         try {
+            //badel path fichier excel
+            File file = new File("C:\\arij\\arij\\produits.csv");
+            writer = new BufferedWriter(new FileWriter(file));
+            
+            for (Produit ev : list) {
+
+                String text = ev.getId_produit()+" | " +ev.getNom_produit()+ " | " + ev.getDescription()+ " | "+ev.getPrix()+" | "+ev.getQuantite()+" | "+ev.getPhoto()+" | "+ev.getId_categorie_id()+ "\n";
+                System.out.println(text);
+                writer.write("id_produit | nom_produit | description | prix | quantite | photo | id_categorie_id \n");
+                writer.write(text);
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        finally {
+            writer.flush();
+             writer.close();
+             Alert alert= new Alert(Alert.AlertType.INFORMATION);
+             alert.setTitle("excel");
+        alert.setHeaderText(null);
+        alert.setContentText("!!!excel exported!!!");
+        alert.showAndWait();
+        }
+    }
+
+    
+
+    
+        
+}
     
     
     
@@ -282,4 +398,4 @@ public class produitviewController implements Initializable {
  
     
   
-}
+

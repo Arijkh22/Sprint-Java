@@ -8,10 +8,16 @@ package edu.devapps.Controller;
 import edu.devapps.entity.Categorie;
 import edu.devapps.entity.Produit;
 import edu.devapps.services.ProduitService;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
+import java.util.Random;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,9 +28,15 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+import tray.animations.AnimationType;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
 
 
 public class AjouterproduitController implements Initializable {
@@ -45,6 +57,8 @@ Categorie thiscat;
     private TextField url;
     private File file;
     private Stage stage;
+    @FXML
+    private ImageView image;
     /**
      * Initializes the controller class.
      */
@@ -145,6 +159,7 @@ Categorie thiscat;
 
                       s.ajouterproduit(new Produit(1, nom_produit.getText(), description.getText(),p,q,url.getText(),d,thiscat.getId()));
                         Alert a = new Alert(Alert.AlertType.INFORMATION, "votre produit est ajouter ");
+        
                         a.show();
         
                           anchorme.setVisible(false);
@@ -161,17 +176,51 @@ Categorie thiscat;
     }
 
     @FXML
-    private void importer(ActionEvent event) {
+    private void importer(ActionEvent event) throws FileNotFoundException, IOException {
+       Random rand = new Random();
+        int x = rand.nextInt(1000);
         FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Sélectionnez un fichier PNG");
+        fileChooser.setTitle("Upload File Path");
         fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("Images", "*.png", "*.jpg"));
-        File fichierSelectionne = fileChooser.showOpenDialog(stage);
+                new FileChooser.ExtensionFilter("Image Files", "*.PNG", "*.jpg", "*.gif", "*.jpeg"));
+        File file = fileChooser.showOpenDialog(null);
+        //String DBPath = "C:\\\\xampp\\\\htdocs\\\\Version-Integre\\\\public\\\\uploads\\\\" + x + ".jpg";
+                String DBPath = "" + x + ".jpg";
 
-        if (fichierSelectionne != null) {
-        	url.setText(fichierSelectionne.getName());
-            file = fichierSelectionne;
-        }
+     if (file != null) {
+    FileInputStream Fsource = new FileInputStream(file.getAbsolutePath());
+    FileOutputStream Fdestination = new FileOutputStream(DBPath);
+    BufferedInputStream bin = new BufferedInputStream(Fsource);
+    BufferedOutputStream bou = new BufferedOutputStream(Fdestination);
+    System.out.println(file.getAbsoluteFile());
+    String path = file.getAbsolutePath();
+    String res;
+    int len;
+    len=path.length();
+    String h ;
+    if (len >= 47) {
+        res = path.substring(0,len);
+        System.out.println(res);
+        h=res;
+        url.setText(res);
+
+    } else {
+        res = path;
+    }
+   
+    Image imgs = new Image(file.toURI().toString());
+    image.setImage(imgs);
+   
+    int b = 0;
+    while (b != -1) {
+        b = bin.read();
+        bou.write(b);
+    }
+    bin.close();
+    bou.close();
+} else {
+    System.out.println("error");
+}
     }
     
     

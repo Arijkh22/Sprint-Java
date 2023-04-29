@@ -1,0 +1,12 @@
+id_produit | nom_produit | description | prix | quantite | photo | id_categorie_id 
+21 | CHtt | haha | 20.0 | 100 | d471b1594d87ca90bd934bf597a60220.jpg | 3
+id_produit | nom_produit | description | prix | quantite | photo | id_categorie_id 
+66 | pc |  pc portable | 147.0 | 100 | aaa | 3
+id_produit | nom_produit | description | prix | quantite | photo | id_categorie_id 
+79 | ffede | dfese | 55.0 | 82 | aaaz | 1
+id_produit | nom_produit | description | prix | quantite | photo | id_categorie_id 
+81 | ggg | gdfgg | 77.0 | 100 | ggg | 1
+id_produit | nom_produit | description | prix | quantite | photo | id_categorie_id 
+85 | aaaaaaaaaaaaaa | sssssssssss | 2121.0 | 12 | icon catgegorie.png | 22
+id_produit | nom_produit | description | prix | quantite | photo | id_categorie_id 
+87 | zzzzzzz | aaaaaaaaaaaa | 15.0 | 140 | C:UsersKhedhira ArijDownloadsDiagramme vierge (1).png | 22
