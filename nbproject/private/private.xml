@@ -2,6 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/yassi/Desktop/yassine/src/edu/devapps/Controller/AjoutereponserecController.java</file>
+            <file>file:/C:/Users/yassi/Desktop/yassine/src/edu/devapps/services/TwilloService.java</file>
+            <file>file:/C:/Users/yassi/Desktop/yassine/src/edu/devapps/services/Mail.java</file>
+            <file>file:/C:/Users/yassi/Desktop/yassine/src/edu/devapps/Controller/StatisticController.java</file>
+            <file>file:/C:/Users/yassi/Desktop/yassine/src/edu/devapps/Controller/ReclamationviewController.java</file>
+            <file>file:/C:/Users/yassi/Desktop/yassine/src/edu/devapps/Controller/AjouterreclamationController.java</file>
+        </group>
     </open-files>
 </project-private>

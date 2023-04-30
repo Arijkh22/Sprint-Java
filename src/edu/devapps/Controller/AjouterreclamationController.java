@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package edu.devapps.Controller;
 
 import edu.devapps.entity.Reclamation;
@@ -117,7 +118,7 @@ public class AjouterreclamationController implements Initializable {
             c.ajouterReclamation(new Reclamation(1,sujetrec.getText(), emailrec.getText(), descriptionrec.getText(), etatrec.getText(),d, 1));
                                 Mail.sendMail(emailrec.getText(), 0);
 
-                Alert a = new Alert(Alert.AlertType.INFORMATION, "reclamation ajouter avec  success");
+                Alert a = new Alert(Alert.AlertType.INFORMATION, "reclamation ajouter avec  success :)");
                 a.show();
                             anchorme.setVisible(false);
         

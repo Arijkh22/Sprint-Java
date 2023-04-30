@@ -126,7 +126,6 @@ public class ModifierReclamationController implements Initializable {
       
         emailrec.setText(camp.getEmail());
         descriptionrec.setText(camp.getDescription());
-        daterec.setText(""+camp.getDate());
         etatrec.setText(camp.getEtat());
       
         
