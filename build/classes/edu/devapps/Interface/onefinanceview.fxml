@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" onMouseClicked="#onclick" prefHeight="427.0" prefWidth="297.0" stylesheets="@../../../utilites/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.devapps.Controller.OnefinanceviewController">
+   <children>
+      <ImageView fitHeight="69.0" fitWidth="63.0" layoutX="9.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../utilites/reply.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="taxe" layoutX="116.0" layoutY="87.0" text="taxe">
+         <font>
+            <Font name="Cambria" size="21.0" />
+         </font>
+      </Label>
+      <Label fx:id="tva" layoutX="116.0" layoutY="130.0" text="etat">
+         <font>
+            <Font name="Cambria" size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="24.0" layoutY="89.0" prefHeight="21.0" prefWidth="63.0" text="taxe :" />
+      <Label layoutX="23.0" layoutY="132.0" text="tva :" />
+      <Label layoutX="14.0" layoutY="171.0" text="photo :" />
+      <Label fx:id="photo" layoutX="97.0" layoutY="170.0" text="photo">
+         <font>
+            <Font name="Cambria" size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="215.0" text="prix :" />
+      <Label fx:id="prix" layoutX="97.0" layoutY="214.0" text="prix">
+         <font>
+            <Font name="Cambria" size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="254.0" text="etat :" />
+      <Label fx:id="etat" layoutX="97.0" layoutY="253.0" text="etat">
+         <font>
+            <Font name="Cambria" size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="19.0" layoutY="296.0" text="date :" />
+      <Label fx:id="date" layoutX="102.0" layoutY="295.0" text="date">
+         <font>
+            <Font name="Cambria" size="21.0" />
+         </font>
+      </Label>
+   </children>
+   <styleClass>
+      <String fx:value="fruit-item" />
+      <String fx:value="shadow" />
+   </styleClass>
+</AnchorPane>

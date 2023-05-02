@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="anchorme" prefHeight="618.0" prefWidth="874.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.devapps.Controller.AjouterutilisateurController">
+   <children>
+      <Label layoutX="337.0" layoutY="29.0" text="inscription">
+         <font>
+            <Font name="Cambria" size="42.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nom" layoutX="131.0" layoutY="119.0" promptText="nom" stylesheets="@../values/style.css">
+         <styleClass>
+            <String fx:value="search-box" />
+            <String fx:value="shadow" />
+         </styleClass>
+      </TextField>
+      <TextField fx:id="password" layoutX="131.0" layoutY="194.0" promptText="password" stylesheets="@../values/style.css">
+         <styleClass>
+            <String fx:value="search-box" />
+            <String fx:value="shadow" />
+         </styleClass>
+      </TextField>
+      <TextField fx:id="prenom" layoutX="542.0" layoutY="119.0" promptText="prenom" stylesheets="@../values/style.css">
+         <styleClass>
+            <String fx:value="search-box" />
+            <String fx:value="shadow" />
+         </styleClass>
+      </TextField>
+      <TextField fx:id="email" layoutX="542.0" layoutY="194.0" promptText="email" stylesheets="@../values/style.css">
+         <styleClass>
+            <String fx:value="search-box" />
+            <String fx:value="shadow" />
+         </styleClass>
+      </TextField>
+      <Button layoutX="461.0" layoutY="455.0" mnemonicParsing="false" onAction="#annulerutilisateur" prefHeight="31.0" prefWidth="194.0" stylesheets="@../values/style.css" text="annuler" textFill="#828282">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <styleClass>
+            <String fx:value="add-btn" />
+            <String fx:value="shadow" />
+         </styleClass>
+      </Button>
+      <Button layoutX="248.0" layoutY="455.0" mnemonicParsing="false" onAction="#ajouterutilisateur" prefHeight="18.0" prefWidth="187.0" stylesheets="@../values/style.css" text="inscription" textFill="#828282">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <styleClass>
+            <String fx:value="add-btn" />
+            <String fx:value="shadow" />
+         </styleClass>
+      </Button>
+      <TextField fx:id="adresse" layoutX="131.0" layoutY="256.0" promptText="adresse" stylesheets="@../values/style.css">
+         <styleClass>
+            <String fx:value="search-box" />
+            <String fx:value="shadow" />
+         </styleClass>
+      </TextField>
+      <TextField fx:id="username" layoutX="131.0" layoutY="331.0" promptText="username" stylesheets="@../values/style.css">
+         <styleClass>
+            <String fx:value="search-box" />
+            <String fx:value="shadow" />
+         </styleClass>
+      </TextField>
+      <TextField fx:id="age" layoutX="542.0" layoutY="256.0" promptText="age" stylesheets="@../values/style.css">
+         <styleClass>
+            <String fx:value="search-box" />
+            <String fx:value="shadow" />
+         </styleClass>
+      </TextField>
+      <TextField fx:id="photo" layoutX="542.0" layoutY="331.0" promptText="photo" stylesheets="@../values/style.css">
+         <styleClass>
+            <String fx:value="search-box" />
+            <String fx:value="shadow" />
+         </styleClass>
+      </TextField>
+   </children>
+   <styleClass>
+      <String fx:value="fruit-item" />
+      <String fx:value="shadow" />
+   </styleClass>
+   <stylesheets>
+      <URL value="@../values/style.css" />
+      <URL value="@../../../utilities/style.css" />
+   </stylesheets>
+</AnchorPane>

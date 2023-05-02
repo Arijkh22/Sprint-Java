@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="anchorme" prefHeight="618.0" prefWidth="874.0" stylesheets="@../../../utilites/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.devapps.Controller.ModifierfinanceController">
+   <styleClass>
+      <String fx:value="fruit-item" />
+      <String fx:value="shadow" />
+   </styleClass>
+   <children>
+      <TextField fx:id="taxe" layoutX="137.0" layoutY="294.0" promptText="taxe" stylesheets="@../values/style.css">
+         <styleClass>
+            <String fx:value="search-box" />
+            <String fx:value="shadow" />
+         </styleClass>
+      </TextField>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="360.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../utilites/reply.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="446.0" layoutY="459.0" mnemonicParsing="false" onAction="#annulerreponse" prefHeight="31.0" prefWidth="194.0" stylesheets="@../values/style.css" text="annuler" textFill="#828282">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <styleClass>
+            <String fx:value="add-btn" />
+            <String fx:value="shadow" />
+         </styleClass>
+      </Button>
+      <Button layoutX="250.0" layoutY="439.0" mnemonicParsing="false" onAction="#modifierreponse" prefHeight="18.0" prefWidth="187.0" stylesheets="@../values/style.css" text="modifier" textFill="#828282">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <styleClass>
+            <String fx:value="add-btn" />
+            <String fx:value="shadow" />
+         </styleClass>
+      </Button>
+      <TextField fx:id="tva" layoutX="510.0" layoutY="294.0" promptText="tva" stylesheets="@../values/style.css">
+         <styleClass>
+            <String fx:value="search-box" />
+            <String fx:value="shadow" />
+         </styleClass>
+      </TextField>
+      <TextField fx:id="prix" layoutX="141.0" layoutY="357.0" promptText="prix" stylesheets="@../values/style.css">
+         <styleClass>
+            <String fx:value="search-box" />
+            <String fx:value="shadow" />
+         </styleClass>
+      </TextField>
+      <TextField fx:id="etat" layoutX="514.0" layoutY="357.0" promptText="etat" stylesheets="@../values/style.css">
+         <styleClass>
+            <String fx:value="search-box" />
+            <String fx:value="shadow" />
+         </styleClass>
+      </TextField>
+   </children>
+</AnchorPane>

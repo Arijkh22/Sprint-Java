@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" onMouseClicked="#onclick" prefHeight="427.0" prefWidth="297.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.devapps.Controller.OnecategorieviewController">
+   <children>
+      <ImageView fitHeight="122.0" fitWidth="108.0" layoutX="77.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../utilities/icon%20catgegorie.png" />
+         </image></ImageView>
+      <Label fx:id="nom" layoutX="152.0" layoutY="201.0" text="nom">
+         <font>
+            <Font name="Cambria" size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="60.0" layoutY="203.0" prefHeight="21.0" prefWidth="63.0" text="nom :" />
+   </children>
+   <styleClass>
+      <String fx:value="fruit-item" />
+      <String fx:value="shadow" />
+   </styleClass>
+   <stylesheets>
+      <URL value="@../../../utilites/style.css" />
+      <URL value="@../../../utilities/style.css" />
+   </stylesheets>
+</AnchorPane>

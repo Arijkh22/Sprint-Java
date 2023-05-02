@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="anchorme" prefHeight="618.0" prefWidth="874.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.devapps.Controller.AjouterfactureController">
+   <children>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="362.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../utilites/reclamation.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="304.0" layoutY="24.0" text="ajouter facture">
+         <font>
+            <Font name="Cambria" size="42.0" />
+         </font>
+      </Label>
+      <TextField fx:id="numero" layoutX="32.0" layoutY="213.0" promptText="numero" stylesheets="@../values/style.css">
+         <styleClass>
+            <String fx:value="search-box" />
+            <String fx:value="shadow" />
+         </styleClass>
+      </TextField>
+      <TextField fx:id="prix" layoutX="220.0" layoutY="341.0" promptText="prix" stylesheets="@../values/style.css">
+         <styleClass>
+            <String fx:value="search-box" />
+            <String fx:value="shadow" />
+         </styleClass>
+      </TextField>
+      <TextField fx:id="nom" layoutX="126.0" layoutY="278.0" promptText="nom" stylesheets="@../values/style.css">
+         <styleClass>
+            <String fx:value="search-box" />
+            <String fx:value="shadow" />
+         </styleClass>
+      </TextField>
+      <TextField fx:id="date" layoutX="566.0" layoutY="278.0" promptText="date" stylesheets="@../values/style.css">
+         <styleClass>
+            <String fx:value="search-box" />
+            <String fx:value="shadow" />
+         </styleClass>
+      </TextField>
+      <Button layoutX="501.0" layoutY="475.0" mnemonicParsing="false" onAction="#annulerfacture" prefHeight="31.0" prefWidth="194.0" stylesheets="@../values/style.css" text="annuler" textFill="#828282">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <styleClass>
+            <String fx:value="add-btn" />
+            <String fx:value="shadow" />
+         </styleClass>
+      </Button>
+      <Button layoutX="211.0" layoutY="475.0" mnemonicParsing="false" onAction="#ajouterfacture" prefHeight="18.0" prefWidth="187.0" stylesheets="@../values/style.css" text="ajouter" textFill="#828282">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <styleClass>
+            <String fx:value="add-btn" />
+            <String fx:value="shadow" />
+         </styleClass>
+      </Button>
+      <TextField fx:id="etat" layoutX="508.0" layoutY="341.0" promptText="etat" stylesheets="@../values/style.css">
+         <styleClass>
+            <String fx:value="search-box" />
+            <String fx:value="shadow" />
+         </styleClass>
+      </TextField>
+      <TextField fx:id="description" layoutX="362.0" layoutY="404.0" promptText="description" stylesheets="@../values/style.css">
+         <styleClass>
+            <String fx:value="search-box" />
+            <String fx:value="shadow" />
+         </styleClass>
+      </TextField>
+      <TextField fx:id="image" layoutX="659.0" layoutY="213.0" promptText="image" stylesheets="@../values/style.css">
+         <styleClass>
+            <String fx:value="search-box" />
+            <String fx:value="shadow" />
+         </styleClass>
+      </TextField>
+   </children>
+   <styleClass>
+      <String fx:value="fruit-item" />
+      <String fx:value="shadow" />
+   </styleClass>
+   <stylesheets>
+      <URL value="@../values/style.css" />
+      <URL value="@../../../utilites/style.css" />
+   </stylesheets>
+</AnchorPane>
