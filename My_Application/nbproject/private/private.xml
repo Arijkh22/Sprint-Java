@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/yassi/Desktop/My_Application/src/com/mycompany/myapp/PublicitesearchformForm.java</file>
+            <file>file:/C:/Users/yassi/Desktop/My_Application/src/com/mycompany/myapp/ModifierAppelOffreForm.java</file>
+            <file>file:/C:/Users/yassi/Desktop/My_Application/src/com/mycompany/myapp/AddCategorieForm.java</file>
+            <file>file:/C:/Users/yassi/Desktop/My_Application/src/com/mycompany/myapp/FinancesForm.java</file>
+            <file>file:/C:/Users/yassi/Desktop/My_Application/src/com/mycompany/myapp/MyApplication.java</file>
+            <file>file:/C:/Users/yassi/Desktop/My_Application/src/com/mycompany/myapp/StatsForm.java</file>
+            <file>file:/C:/Users/yassi/Desktop/My_Application/src/com/mycompany/myapp/FacturesearchForm.java</file>
+            <file>file:/C:/Users/yassi/Desktop/My_Application/src/com/mycompany/myapp/ModifierPubliciteForm.java</file>
+            <file>file:/C:/Users/yassi/Desktop/My_Application/src/com/mycompany/myapp/AddSponsorForm.java</file>
+            <file>file:/C:/Users/yassi/Desktop/My_Application/src/com/mycompany/myapp/ModifierFinanceForm.java</file>
+            <file>file:/C:/Users/yassi/Desktop/My_Application/src/com/mycompany/myapp/ModifierFactureForm.java</file>
+            <file>file:/C:/Users/yassi/Desktop/My_Application/src/Services/AppelOffreService.java</file>
+            <file>file:/C:/Users/yassi/Desktop/My_Application/src/com/mycompany/myapp/SideMenuBaseForm.java</file>
+            <file>file:/C:/Users/yassi/Desktop/My_Application/src/com/mycompany/myapp/ModifierProduitsForm.java</file>
+            <file>file:/C:/Users/yassi/Desktop/My_Application/src/Services/PubliciteService.java</file>
+            <file>file:/C:/Users/yassi/Desktop/My_Application/src/com/mycompany/myapp/ModifierreponceForm.java</file>
+            <file>file:/C:/Users/yassi/Desktop/My_Application/src/com/mycompany/myapp/ModifierrecForm.java</file>
+            <file>file:/C:/Users/yassi/Desktop/My_Application/src/com/mycompany/myapp/ReclamationssearchForm.java</file>
+            <file>file:/C:/Users/yassi/Desktop/My_Application/src/Services/Mail.java</file>
+            <file>file:/C:/Users/yassi/Desktop/My_Application/src/com/mycompany/myapp/AddFinanceForm.java</file>
+            <file>file:/C:/Users/yassi/Desktop/My_Application/src/com/mycompany/myapp/ReponceForm.java</file>
+            <file>file:/C:/Users/yassi/Desktop/My_Application/src/com/mycompany/myapp/AppelOffresearchForm.java</file>
+            <file>file:/C:/Users/yassi/Desktop/My_Application/src/com/mycompany/myapp/AppelOffreForm.java</file>
+            <file>file:/C:/Users/yassi/Desktop/My_Application/src/com/mycompany/myapp/SponsorForm.java</file>
+            <file>file:/C:/Users/yassi/Desktop/My_Application/src/com/mycompany/myapp/ModifierSponsorForm.java</file>
+            <file>file:/C:/Users/yassi/Desktop/My_Application/src/com/mycompany/myapp/UtilisateurssearchForm.java</file>
+            <file>file:/C:/Users/yassi/Desktop/My_Application/src/Services/ProduitService.java</file>
+            <file>file:/C:/Users/yassi/Desktop/My_Application/src/Entities/Reclamation.java</file>
+            <file>file:/C:/Users/yassi/Desktop/My_Application/src/com/mycompany/myapp/ProduitssearchForm.java</file>
+            <file>jar:file:/C:/Users/yassi/Desktop/My_Application/lib/CodenameOne_SRC.zip!/com/codename1/io/NetworkEvent.java</file>
+            <file>file:/C:/Users/yassi/Desktop/My_Application/src/com/mycompany/myapp/CategoriesForm.java</file>
+            <file>file:/C:/Users/yassi/Desktop/My_Application/src/Services/Mailling.java</file>
+            <file>file:/C:/Users/yassi/Desktop/My_Application/src/com/mycompany/myapp/UtilisateursForm.java</file>
+            <file>file:/C:/Users/yassi/Desktop/My_Application/src/com/mycompany/myapp/Addreclamationform.java</file>
+            <file>file:/C:/Users/yassi/Desktop/My_Application/src/com/mycompany/myapp/FactureForm.java</file>
+            <file>file:/C:/Users/yassi/Desktop/My_Application/src/com/mycompany/myapp/ModifierUtilisateurForm.java</file>
+            <file>file:/C:/Users/yassi/Desktop/My_Application/src/com/mycompany/myapp/ProduitsForm.java</file>
+            <file>file:/C:/Users/yassi/Desktop/My_Application/src/com/mycompany/myapp/AddReponseOffreForm.java</file>
+            <file>file:/C:/Users/yassi/Desktop/My_Application/src/com/mycompany/myapp/ModifierCategorieForm.java</file>
+            <file>file:/C:/Users/yassi/Desktop/My_Application/src/com/mycompany/myapp/ReclamationsForm.java</file>
+            <file>file:/C:/Users/yassi/Desktop/My_Application/src/com/mycompany/myapp/ReponseOffreForm.java</file>
+            <file>file:/C:/Users/yassi/Desktop/My_Application/src/com/mycompany/myapp/AddRecForm.java</file>
+            <file>file:/C:/Users/yassi/Desktop/My_Application/src/Services/ReclamationService.java</file>
+            <file>file:/C:/Users/yassi/Desktop/My_Application/src/com/mycompany/myapp/AddAppelOffreForm.java</file>
+            <file>file:/C:/Users/yassi/Desktop/My_Application/src/Services/UtilisateurService.java</file>
+            <file>file:/C:/Users/yassi/Desktop/My_Application/src/Services/FactureService.java</file>
+            <file>file:/C:/Users/yassi/Desktop/My_Application/src/com/mycompany/myapp/AddPubliciteForm.java</file>
+            <file>file:/C:/Users/yassi/Desktop/My_Application/src/Services/CategorieService.java</file>
+            <file>file:/C:/Users/yassi/Desktop/My_Application/src/com/mycompany/myapp/AddFactureForm.java</file>
+            <file>file:/C:/Users/yassi/Desktop/My_Application/src/com/mycompany/myapp/ModifierReponseOffreForm.java</file>
+            <file>file:/C:/Users/yassi/Desktop/My_Application/src/com/mycompany/myapp/PubliciteForm.java</file>
+            <file>file:/C:/Users/yassi/Desktop/My_Application/src/com/mycompany/myapp/AddUtilisateurForm.java</file>
+            <file>file:/C:/Users/yassi/Desktop/My_Application/src/com/mycompany/myapp/AddProduitsForm.java</file>
+        </group>
+    </open-files>
+</project-private>
